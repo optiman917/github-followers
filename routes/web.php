@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/getTotal/{username}', [UserInfoController::class, 'getGitHubUserInfo']);
+
+Route::get('/getFollowers/{username}/{page}', [UserInfoController::class, 'getGitFollowers']);
